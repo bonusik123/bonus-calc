@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор бонусу</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; text-align: center; background: #f9f9f9; }
+    input { font-size: 1.2em; padding: 10px; width: 80%; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; }
+    button { padding: 10px 20px; font-size: 1.2em; border-radius: 8px; border: none; background-color: #4CAF50; color: white; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    #result { margin-top: 20px; font-size: 1.5em; color: #333; }
+  </style>
+</head>
+<body>
+  <h2>Калькулятор бонусу працівника</h2>
+  <p>Введіть націнку (%):</p>
+  <input type="number" id="markup" placeholder="Наприклад, 20">
+  <br>
+  <button onclick="calculateBonus()">Розрахувати</button>
+  <div id="result"></div>
+
+  <script>
+    function calculateBonus() {
+      const markup = parseFloat(document.getElementById("markup").value);
+      if (isNaN(markup)) {
+        document.getElementById("result").innerText = "Будь ласка, введіть коректне число.";
+        return;
+      }
+      const bonus = (markup * 2 / 15).toFixed(2);
+      document.getElementById("result").innerText = `Бонус працівника: ${bonus}%`;
+    }
+  </script>
+</body>
+</html>
